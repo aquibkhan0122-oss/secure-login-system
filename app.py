@@ -4,13 +4,17 @@ import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
 import pyotp
+import os
+from dotenv import load_dotenv
 import secrets
 import time
+
+load_dotenv()
 
 app = Flask(__name__)
 
 
-app.secret_key = "secure-login-system-secret-key"
+app.secret_key = os.getenv("SECRET_KEY")
 
 DATABASE = "users.db"
 
