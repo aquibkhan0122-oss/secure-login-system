@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two-Factor Authentication</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">🔐</div>
+
+    <h1>Two-Factor Authentication</h1>
+
+    <p class="subtitle">
+        Enter the 6-digit OTP shown in the terminal.
+    </p>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+
+        <label>One-Time Password</label>
+
+        <input
+            type="text"
+            name="otp"
+            placeholder="Enter 6-digit OTP"
+            maxlength="6"
+            pattern="[0-9]{6}"
+            required
+        >
+
+        <button type="submit">
+            Verify OTP
+        </button>
+
+    </form>
+
+    <p class="bottom-text">
+        🔒 Your account requires two-step verification.
+    </p>
+
+</div>
+
+</body>
+</html>

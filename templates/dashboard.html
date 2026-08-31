@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container dashboard">
+
+    <div class="logo">🛡️</div>
+
+    <h1>Welcome, {{ username }}!</h1>
+
+    <p class="subtitle">
+        You are successfully logged in.
+    </p>
+
+    <div class="security-box">
+        <h3>🛡️ Security Status</h3>
+        <p>✓ Password is securely hashed</p>
+        <p>✓ Session authentication is active</p>
+        <p>✓ SQL injection protection enabled</p>
+        <p>✓ Input validation enabled</p>
+    </div>
+
+    <a href="{{ url_for('logout') }}">
+        <button>Logout</button>
+    </a>
+
+</div>
+
+</body>
+</html>
